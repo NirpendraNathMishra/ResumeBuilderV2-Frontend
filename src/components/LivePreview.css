@@ -1,0 +1,225 @@
+.live-preview-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+    text-align: center;
+    gap: 12px;
+}
+
+.live-preview-empty h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.live-preview-empty p {
+    font-size: 13px;
+    max-width: 280px;
+}
+
+.live-preview-container {
+    background-color: var(--bg-tertiary);
+    height: 100%;
+    overflow: hidden;
+    /* Prevent scrolling entirely by default */
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Center vertically if space allows */
+    position: relative;
+    /* For absolute controls */
+}
+
+/* When manually zoomed, we need to allow scrolling and prevent vertical centering from cropping the top */
+.live-preview-container.is-zoomed {
+    overflow: auto;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.live-preview-page-wrapper {
+    /* Calculate scale based on the smaller constraint: width or height */
+    /* A4 aspect ratio is approx 1:1.414 */
+    /* Container height is typically ~100vh - 120px minus padding */
+    --max-h: calc(100vh - 180px);
+    /* rough estimate of available height */
+    --scale-h: calc(var(--max-h) / 1122px);
+    /* 1122px is 297mm */
+    --scale-w: calc(var(--container-width, 100vw) / 850px);
+
+    transform: scale(min(1, min(var(--scale-w), var(--scale-h))));
+    transform-origin: top center;
+    transition: transform var(--transition-fast);
+
+    /* Ensure the wrapper bounding box matches the scaled content exactly */
+    height: calc(1122px * min(1, min(var(--scale-w), var(--scale-h))));
+    margin-bottom: 24px;
+}
+
+.live-preview-page {
+    /* Standard A4 aspect ratio (1 : 1.414) */
+    width: 210mm;
+    min-height: 297mm;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 20mm 15mm;
+
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+    line-height: 1.4;
+    font-size: 11pt;
+}
+
+/* Base text scaling */
+.lp-header {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.lp-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.lp-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    font-size: 10pt;
+    color: #333;
+    margin-top: 4px;
+}
+
+.lp-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lp-contact a {
+    color: #333;
+    text-decoration: none;
+}
+
+.lp-section {
+    margin-bottom: 12px;
+}
+
+.lp-section-title {
+    font-size: 12pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.lp-summary-text {
+    text-align: justify;
+    line-height: 1.4;
+}
+
+.lp-item {
+    margin-bottom: 8px;
+}
+
+.lp-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 11pt;
+}
+
+.lp-item-header strong {
+    font-weight: 700;
+}
+
+.lp-item-sub {
+    font-size: 11pt;
+}
+
+.lp-bullets {
+    margin-top: 4px;
+    margin-bottom: 0px;
+    padding-left: 20px;
+}
+
+.lp-bullets li {
+    margin-bottom: 2px;
+    text-align: justify;
+}
+
+.lp-skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.lp-skill-row {
+    font-size: 11pt;
+}
+
+/* Typography resets for the A4 page exclusively */
+.live-preview-page h1,
+.live-preview-page h2,
+.live-preview-page h3,
+.live-preview-page p {
+    margin: 0;
+    box-shadow: none;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+/* Floating Zoom Controls */
+.live-preview-controls {
+    position: fixed;
+    bottom: 32px;
+    right: 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 16, 16, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-primary);
+    padding: 6px 14px;
+    border-radius: 100px;
+    z-index: 10;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transition: all var(--transition-fast);
+}
+
+.live-preview-controls button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.live-preview-controls button:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.live-preview-zoom-level {
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 36px;
+    text-align: center;
+    user-select: none;
+    color: var(--text-primary);
+}

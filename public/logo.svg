@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="8" fill="url(#grad)"/>
+  <!-- Document icon -->
+  <rect x="10" y="6" width="20" height="28" rx="2" fill="white" opacity="0.95"/>
+  <!-- ATS strikethrough line -->
+  <line x1="8" y1="33" x2="32" y2="7" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
+  <!-- Text lines on document -->
+  <rect x="14" y="11" width="12" height="2" rx="1" fill="#cbd5e1"/>
+  <rect x="14" y="15" width="10" height="1.5" rx="0.75" fill="#e2e8f0"/>
+  <rect x="14" y="18.5" width="12" height="1.5" rx="0.75" fill="#e2e8f0"/>
+  <rect x="14" y="22" width="8" height="1.5" rx="0.75" fill="#e2e8f0"/>
+  <rect x="14" y="25.5" width="11" height="1.5" rx="0.75" fill="#e2e8f0"/>
+  <!-- Checkmark -->
+  <circle cx="30" cy="28" r="7" fill="#10b981"/>
+  <polyline points="26,28 29,31 34,25" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

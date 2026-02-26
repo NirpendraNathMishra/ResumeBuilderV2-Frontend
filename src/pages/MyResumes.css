@@ -1,0 +1,140 @@
+.my-resumes {
+    min-height: 100vh;
+    padding: 100px 0 60px;
+    position: relative;
+}
+
+.my-resumes__glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 300px;
+    background: var(--gradient-glow);
+    pointer-events: none;
+}
+
+.my-resumes__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.my-resumes__credits {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 12px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--accent-violet);
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.my-resumes__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 80px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.my-resumes__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 0;
+    color: var(--text-muted);
+}
+
+.my-resumes__empty h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-top: 16px;
+}
+
+.my-resumes__empty p {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.my-resumes__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.my-resumes__card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.my-resumes__card-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.my-resumes__type-badge,
+.my-resumes__field-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.my-resumes__card-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    background: rgba(15, 23, 42, 0.4);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+}
+
+.my-resumes__card-date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.my-resumes__card-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
